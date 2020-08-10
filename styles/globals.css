@@ -29,4 +29,15 @@ main {
   max-width: 60em;
   padding: 1em;
   background: #fff;
+  overflow: hidden;
 }
+
+dt {
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+dd {
+  padding-left: 1em;
+}
+

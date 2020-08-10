@@ -15,6 +15,12 @@ export default function Home() {
           <a>Visit an authenticated page that requires an Artsy login &rarr;</a>
         </Link>
       </p>
+
+      <p>
+        <Link href="/gravity">
+          <a>Visit a page that makes some Gravity requests &rarr;</a>
+        </Link>
+      </p>
     </div>
   );
 }

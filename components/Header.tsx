@@ -16,6 +16,9 @@ export const Header = () => {
               <Link href="/authenticated">
                 <a>Authenticated page</a>
               </Link>
+              <Link href="/gravity">
+                <a>Gravity example</a>
+              </Link>
               <Link href="/api/logout">
                 <a>Logout</a>
               </Link>
