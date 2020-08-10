@@ -29,3 +29,12 @@ export function parseCookies(req: NextApiRequest) {
   const cookie = req.headers?.cookie;
   return parse(cookie || "");
 }
+
+export function removeTokenCookie(res: NextApiResponse) {
+  const cookie = serialize(TOKEN_NAME, "", {
+    maxAge: -1,
+    path: "/",
+  });
+
+  res.setHeader("Set-Cookie", cookie);
+}
