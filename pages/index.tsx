@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,6 +9,12 @@ export default function Home() {
       </Head>
 
       <h1>NextJS Artsy Auth Demo</h1>
+
+      <p>
+        <Link href="/authenticated">
+          <a>Visit an authenticated page that requires an Artsy login &rarr;</a>
+        </Link>
+      </p>
     </div>
   );
 }
