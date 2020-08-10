@@ -22,6 +22,9 @@ export const Header = () => {
               <Link href="/metaphysics">
                 <a>Metaphysics example</a>
               </Link>
+              <Link href="/artist-series">
+                <a>Artist series</a>
+              </Link>
               <Link href="/api/logout">
                 <a>Logout</a>
               </Link>
