@@ -21,6 +21,12 @@ export default function Home() {
           <a>Visit a page that makes some Gravity requests &rarr;</a>
         </Link>
       </p>
+
+      <p>
+        <Link href="/metaphysics">
+          <a>Visit a page that makes a Metaphysics request &rarr;</a>
+        </Link>
+      </p>
     </div>
   );
 }

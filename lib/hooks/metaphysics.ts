@@ -1,0 +1,43 @@
+import useSWR from "swr";
+import { useUser } from "./user";
+
+const metaphysicsFetcher = async (
+  query: string,
+  variableJSON: string = "{}",
+  accessToken: string
+) => {
+  const url = `${process.env.NEXT_PUBLIC_METAPHYSICS_URL}/v2`;
+  const variables = JSON.parse(variableJSON);
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Access-Token": accessToken,
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+
+  if (!response.ok) {
+    throw new Error(response.statusText || response.status.toString());
+  }
+
+  const json = await response.json();
+  const { data, errors } = json; // TODO: errors
+
+  return data;
+};
+
+export const useMetaphysics = (query: string, variables: object = {}) => {
+  const user = useUser();
+  const { data, error } = useSWR(
+    user ? [query, JSON.stringify(variables), user.accessToken] : null,
+    metaphysicsFetcher
+  );
+
+  return {
+    data,
+    error,
+    isLoading: !data && !error,
+  };
+};

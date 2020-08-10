@@ -19,6 +19,9 @@ export const Header = () => {
               <Link href="/gravity">
                 <a>Gravity example</a>
               </Link>
+              <Link href="/metaphysics">
+                <a>Metaphysics example</a>
+              </Link>
               <Link href="/api/logout">
                 <a>Logout</a>
               </Link>
