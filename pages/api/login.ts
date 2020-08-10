@@ -5,8 +5,12 @@ import { encryptSession } from "../../lib/session-encryption";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { username, password } = req.body;
-    const session: UserSessionData = await findUser({ username, password });
+    const { username, password, otp } = req.body;
+    const session: UserSessionData = await findUser({
+      username,
+      password,
+      otp,
+    });
     const encryptedSession = await encryptSession(session);
     setTokenCookie(res, encryptedSession);
     res.status(200).send({ done: true });

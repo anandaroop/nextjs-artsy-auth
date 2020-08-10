@@ -1,11 +1,13 @@
 import { useState, FormEvent } from "react";
-
 import { useUser } from "../lib/hooks";
+
+const TWO_FACTOR_MISSING_RESPONSE = "missing two-factor";
 
 const Login = () => {
   const user = useUser({ redirectIfFound: true, redirectTo: "/" });
 
   const [errorMsg, setErrorMsg] = useState("");
+  const [isTwoFactorEnabled, setTwoFactorEnabled] = useState(false);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -16,6 +18,7 @@ const Login = () => {
     const body = {
       username: form.username.value,
       password: form.password.value,
+      otp: form.otp.value,
     };
 
     try {
@@ -30,8 +33,13 @@ const Login = () => {
         throw new Error(await res.text());
       }
     } catch (error) {
-      console.error("An unexpected error occurred:", error);
-      setErrorMsg(error.message);
+      if (error.message.match(TWO_FACTOR_MISSING_RESPONSE)) {
+        setErrorMsg("Please supply two-factor authentication code");
+        setTwoFactorEnabled(true);
+      } else {
+        console.error("An unexpected error occurred:", error);
+        setErrorMsg(error.message);
+      }
     }
   }
 
@@ -51,6 +59,14 @@ const Login = () => {
               <input type="password" name="password" required />
             </label>
           </div>
+          <div
+            className={isTwoFactorEnabled ? "otp-field revealed" : "otp-field"}
+          >
+            <label>
+              Authentication code
+              <input type="text" name="otp" />
+            </label>
+          </div>
           <div>
             <button type="submit">Login</button>
           </div>
@@ -64,15 +80,32 @@ const Login = () => {
             margin: 1em auto;
           }
 
-          input {
+          label,
+          input,
+          button {
+            font-size: 1em;
+            line-height: 1em;
+            padding: 0.25em 0;
             margin: 0.25em 0;
+          }
+
+          input {
+            padding: 0.25em;
             width: 100%;
           }
 
-          input,
-          button {
-            font-size: 1rem;
-            padding: 0.25em;
+          .otp-field {
+            visibility: hidden;
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: height 0.2s, opacity 0.4s;
+          }
+
+          .otp-field.revealed {
+            visibility: visible;
+            height: 3.5em;
+            opacity: 1;
           }
 
           .error {

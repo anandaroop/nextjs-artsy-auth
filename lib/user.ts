@@ -6,8 +6,8 @@ export interface UserSessionData {
   accessToken: string;
 }
 
-export async function findUser({ username, password }) {
-  const accessToken = await getGravityAccessToken({ username, password });
+export async function findUser({ username, password, otp }) {
+  const accessToken = await getGravityAccessToken({ username, password, otp });
   const userProfile = await getUserProfile(accessToken);
 
   return {
@@ -16,7 +16,7 @@ export async function findUser({ username, password }) {
   };
 }
 
-const getGravityAccessToken = async ({ username, password }) => {
+const getGravityAccessToken = async ({ username, password, otp }) => {
   const response = await fetch(
     `${process.env.GRAVITY_URL}/oauth2/access_token`,
     {
@@ -30,6 +30,7 @@ const getGravityAccessToken = async ({ username, password }) => {
         grant_type: "credentials",
         email: username,
         password: password,
+        otp_attempt: otp,
       }),
     }
   );
