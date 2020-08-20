@@ -28,7 +28,7 @@ export default function Page() {
     }
   `;
   const variables = {
-    slug: "yayoi-kusama-pumpkins",
+    slug: "kaws-tweety",
   };
 
   const { data, error, isLoading } = useMetaphysics(query, variables);
