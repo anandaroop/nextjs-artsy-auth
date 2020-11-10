@@ -3,7 +3,7 @@ import { useUser } from "./user";
 
 const metaphysicsFetcher = async (
   query: string,
-  variableJSON: string = "{}",
+  variableJSON = "{}",
   accessToken: string
 ) => {
   const url = `${process.env.NEXT_PUBLIC_METAPHYSICS_URL}/v2`;
@@ -23,12 +23,15 @@ const metaphysicsFetcher = async (
   }
 
   const json = await response.json();
-  const { data, errors } = json; // TODO: errors
+  const { data, _errors } = json; // TODO: errors
 
   return data;
 };
 
-export const useMetaphysics = (query: string, variables: object = {}) => {
+export const useMetaphysics = (
+  query: string,
+  variables: Record<string, unknown> = {}
+) => {
   const user = useUser();
   const { data, error } = useSWR(
     user ? [query, JSON.stringify(variables), user.accessToken] : null,
