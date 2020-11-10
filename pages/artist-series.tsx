@@ -1,9 +1,9 @@
-import Head from "next/head";
-import Link from "next/link";
-import { useUser, useMetaphysics } from "../lib/hooks";
+import Head from "next/head"
+import Link from "next/link"
+import { useUser, useMetaphysics } from "../lib/hooks"
 
 export default function Page() {
-  const user = useUser({ redirectTo: "/login" });
+  const user = useUser({ redirectTo: "/login" })
 
   const query = `
     query {
@@ -24,17 +24,17 @@ export default function Page() {
         }
       }
     }
-  `;
-  const variables = {};
+  `
+  const variables = {}
 
-  const { data, error, isLoading } = useMetaphysics(query, variables);
+  const { data, error, isLoading } = useMetaphysics(query, variables)
 
-  if (!user) return null;
+  if (!user) return null
 
-  if (error) return <div>Error! {JSON.stringify({ data, error })}</div>;
+  if (error) return <div>Error! {JSON.stringify({ data, error })}</div>
 
   const artistSeriesList =
-    isLoading || data?.artistSeriesConnection.edges.map(({ node }) => node);
+    isLoading || data?.artistSeriesConnection.edges.map(({ node }) => node)
 
   return (
     <>
@@ -71,7 +71,7 @@ export default function Page() {
                       {series.forSaleArtworksCount} available
                     </td>
                   </tr>
-                );
+                )
               })}
             </tbody>
           </table>
@@ -97,5 +97,5 @@ export default function Page() {
         }
       `}</style>
     </>
-  );
+  )
 }

@@ -1,25 +1,25 @@
-import Head from "next/head";
-import { useUser, useGravity } from "../lib/hooks";
+import Head from "next/head"
+import { useUser, useGravity } from "../lib/hooks"
 
 export default function Page() {
-  const user = useUser({ redirectTo: "/login" });
+  const user = useUser({ redirectTo: "/login" })
 
   const {
     data: artist,
     error: artistError,
     isLoading: artistIsLoading,
-  } = useGravity("artist/yayoi-kusama");
+  } = useGravity("artist/yayoi-kusama")
 
   const {
     data: genome,
     error: genomeError,
     isLoading: genomeIsLoading,
-  } = useGravity("artist/yayoi-kusama/genome");
+  } = useGravity("artist/yayoi-kusama/genome")
 
-  if (!user) return null;
+  if (!user) return null
 
   if (artistError || genomeError)
-    return <div>Error! {JSON.stringify([artistError, genomeError])}</div>;
+    return <div>Error! {JSON.stringify([artistError, genomeError])}</div>
 
   return (
     <div>
@@ -49,7 +49,7 @@ export default function Page() {
                   <dt>{key}</dt>
                   <dd>{JSON.stringify(value)}</dd>
                 </>
-              );
+              )
             })}
           </dl>
         </>
@@ -82,11 +82,11 @@ export default function Page() {
                     </div>
                   </dd>
                 </>
-              );
+              )
             })}
           </dl>
         </>
       )}
     </div>
-  );
+  )
 }
