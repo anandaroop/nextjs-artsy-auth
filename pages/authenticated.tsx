@@ -1,10 +1,10 @@
-import Head from "next/head";
-import { useUser } from "../lib/hooks";
+import Head from "next/head"
+import { useUser } from "../lib/hooks"
 
 export default function Page() {
-  const user = useUser({ redirectTo: "/login" });
+  const user = useUser({ redirectTo: "/login" })
 
-  if (!user) return null;
+  if (!user) return null
 
   return (
     <div>
@@ -23,5 +23,5 @@ export default function Page() {
         </pre>
       </div>
     </div>
-  );
+  )
 }

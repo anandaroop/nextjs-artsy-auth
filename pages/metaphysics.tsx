@@ -1,8 +1,8 @@
-import Head from "next/head";
-import { useUser, useMetaphysics } from "../lib/hooks";
+import Head from "next/head"
+import { useUser, useMetaphysics } from "../lib/hooks"
 
 export default function Page() {
-  const user = useUser({ redirectTo: "/login" });
+  const user = useUser({ redirectTo: "/login" })
 
   const query = `
     query($slug: ID!) {
@@ -26,18 +26,18 @@ export default function Page() {
         }
       }
     }
-  `;
+  `
   const variables = {
     slug: "kaws-tweety",
-  };
+  }
 
-  const { data, error, isLoading } = useMetaphysics(query, variables);
+  const { data, error, isLoading } = useMetaphysics(query, variables)
 
-  if (!user) return null;
+  if (!user) return null
 
-  if (error) return <div>Error! {JSON.stringify({ data, error })}</div>;
+  if (error) return <div>Error! {JSON.stringify({ data, error })}</div>
 
-  const artistSeries = isLoading || data?.artistSeries;
+  const artistSeries = isLoading || data?.artistSeries
 
   return (
     <div>
@@ -66,10 +66,10 @@ export default function Page() {
                 <h2>{node.title}</h2>
                 <img src={node.imageUrl} alt={node.title} />
               </div>
-            );
+            )
           })}
         </>
       )}
     </div>
-  );
+  )
 }

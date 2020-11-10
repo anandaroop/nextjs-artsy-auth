@@ -1,19 +1,19 @@
 export interface UserSessionData {
-  email: string;
-  roles: string[];
-  labFeatures: string[];
-  lastSignInAt: string;
-  accessToken: string;
+  email: string
+  roles: string[]
+  labFeatures: string[]
+  lastSignInAt: string
+  accessToken: string
 }
 
 export async function findUser({ username, password, otp }) {
-  const accessToken = await getGravityAccessToken({ username, password, otp });
-  const userProfile = await getUserProfile(accessToken);
+  const accessToken = await getGravityAccessToken({ username, password, otp })
+  const userProfile = await getUserProfile(accessToken)
 
   return {
     ...userProfile,
     accessToken,
-  };
+  }
 }
 
 const getGravityAccessToken = async ({ username, password, otp }) => {
@@ -33,18 +33,18 @@ const getGravityAccessToken = async ({ username, password, otp }) => {
         otp_attempt: otp,
       }),
     }
-  );
-  const json = await response.json();
+  )
+  const json = await response.json()
 
   if (response.ok) {
-    return json.access_token;
+    return json.access_token
   } else {
     const errorMessage = [response.statusText, json.error_description].join(
       ": "
-    );
-    throw new Error(errorMessage);
+    )
+    throw new Error(errorMessage)
   }
-};
+}
 
 const getUserProfile = async (accessToken) => {
   const response = await fetch(`${process.env.GRAVITY_URL}/api/v1/me`, {
@@ -53,15 +53,15 @@ const getUserProfile = async (accessToken) => {
       "Content-Type": "application/json",
       "X-Access-Token": accessToken,
     },
-  });
+  })
 
-  const user = await response.json();
-  const { email, roles, lab_features, last_sign_in_at } = user;
+  const user = await response.json()
+  const { email, roles, lab_features, last_sign_in_at } = user
 
   return {
     email,
     roles,
     labFeatures: lab_features,
     lastSignInAt: last_sign_in_at,
-  };
-};
+  }
+}

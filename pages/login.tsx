@@ -1,44 +1,44 @@
-import { useState, FormEvent } from "react";
-import { useUser } from "../lib/hooks";
+import { useState, FormEvent } from "react"
+import { useUser } from "../lib/hooks"
 
-const TWO_FACTOR_MISSING_RESPONSE = "missing two-factor";
+const TWO_FACTOR_MISSING_RESPONSE = "missing two-factor"
 
 const Login = () => {
-  const user = useUser({ redirectIfFound: true, redirectTo: "/" });
+  const user = useUser({ redirectIfFound: true, redirectTo: "/" })
 
-  const [errorMsg, setErrorMsg] = useState("");
-  const [isTwoFactorEnabled, setTwoFactorEnabled] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("")
+  const [isTwoFactorEnabled, setTwoFactorEnabled] = useState(false)
 
   async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (errorMsg) setErrorMsg("");
+    e.preventDefault()
+    if (errorMsg) setErrorMsg("")
 
-    const form = e.currentTarget as HTMLFormElement;
+    const form = e.currentTarget as HTMLFormElement
 
     const body = {
       username: form.username.value,
       password: form.password.value,
       otp: form.otp.value,
-    };
+    }
 
     try {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
-      });
+      })
       if (res.status === 200) {
-        window.location.href = "/";
+        window.location.href = "/"
       } else {
-        throw new Error(await res.text());
+        throw new Error(await res.text())
       }
     } catch (error) {
       if (error.message.match(TWO_FACTOR_MISSING_RESPONSE)) {
-        setErrorMsg("Please supply two-factor authentication code");
-        setTwoFactorEnabled(true);
+        setErrorMsg("Please supply two-factor authentication code")
+        setTwoFactorEnabled(true)
       } else {
-        console.error("An unexpected error occurred:", error);
-        setErrorMsg(error.message);
+        console.error("An unexpected error occurred:", error)
+        setErrorMsg(error.message)
       }
     }
   }
@@ -114,7 +114,7 @@ const Login = () => {
         `}</style>
       </>
     )
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

@@ -1,4 +1,4 @@
-import { Header } from "./Header";
+import { Header } from "./Header"
 
 export const Layout = ({ children }) => {
   return (
@@ -6,5 +6,5 @@ export const Layout = ({ children }) => {
       <Header />
       <main>{children}</main>
     </>
-  );
-};
+  )
+}
