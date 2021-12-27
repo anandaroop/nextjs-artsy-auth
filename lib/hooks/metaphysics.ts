@@ -3,11 +3,10 @@ import { useUser } from "./user"
 
 const metaphysicsFetcher = async (
   query: string,
-  variableJSON = "{}",
+  variables = {},
   accessToken: string
 ) => {
   const url = `${process.env.NEXT_PUBLIC_METAPHYSICS_URL}/v2`
-  const variables = JSON.parse(variableJSON)
 
   const response = await fetch(url, {
     method: "POST",
