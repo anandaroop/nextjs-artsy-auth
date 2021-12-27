@@ -65,7 +65,7 @@ const Login = () => {
           >
             <label>
               Authentication code
-              <input type="text" name="otp" />
+              <input type="text" name="otp" disabled={!isTwoFactorEnabled} />
             </label>
           </div>
           <div>
