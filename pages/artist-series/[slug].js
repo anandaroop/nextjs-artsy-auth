@@ -16,8 +16,10 @@ export default function Page() {
         artists {
           name
         }
-        artworksConnection(first: 10) {
-          totalCount
+        filterArtworksConnection(first: 100) {
+          counts {
+            total
+          }
           edges {
             node {
               internalID
@@ -64,7 +66,7 @@ export default function Page() {
 
             <div style={{ marginBottom: "2em" }}>{artistSeries.description}</div>
 
-            {artistSeries.artworksConnection.edges.map(({ node }) => {
+            {artistSeries.filterArtworksConnection.edges.map(({ node }) => {
               return (
                 <div key={node.internalID}>
                   <h2>{node.title}</h2>
