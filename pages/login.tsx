@@ -1,7 +1,7 @@
 import { useState, FormEvent } from "react"
 import { useUser } from "../lib/hooks"
 
-const TWO_FACTOR_MISSING_RESPONSE = "missing two-factor"
+const TWO_FACTOR_MISSING_RESPONSE = /invalid.*code/
 
 const Login = () => {
   const user = useUser({ redirectIfFound: true, redirectTo: "/" })
@@ -33,6 +33,7 @@ const Login = () => {
         throw new Error(await res.text())
       }
     } catch (error) {
+      console.log({ errorMessage: error.message })
       if (error.message.match(TWO_FACTOR_MISSING_RESPONSE)) {
         setErrorMsg("Please supply two-factor authentication code")
         setTwoFactorEnabled(true)
