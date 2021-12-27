@@ -1543,11 +1543,6 @@ execa@^5.0.0, execa@^5.1.1:
     signal-exit "^3.0.3"
     strip-final-newline "^2.0.0"
 
-fast-deep-equal@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz#7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
-  integrity sha1-ewUhjd+WZ79/Nwv3/bLLFf3Qqkk=
-
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
@@ -3482,12 +3477,10 @@ supports-color@^9.2.1:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.2.1.tgz#599dc9d45acf74c6176e0d880bab1d7d718fe891"
   integrity sha512-Obv7ycoCTG51N7y175StI9BlAXrmgZrFhZOb0/PyjHBher/NmsdBgbbQ1Inhq+gIhz6+7Gb+jWF2Vqi7Mf1xnQ==
 
-swr@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.3.0.tgz#69602953dd50ab07fe60c920fd63199256645675"
-  integrity sha512-3p0p5TWH0qiaKAph5wBkMwqe2WjNseITfjmdVoNzjqRZGn/gnpRi6whMDjhMVb/vp/yyDtKWPlyjid8QZH+UhA==
-  dependencies:
-    fast-deep-equal "2.0.1"
+swr@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.1.2.tgz#9f3de2541931fccf03c48f322f1fc935a7551612"
+  integrity sha512-UsM0eo5T+kRPyWFZtWRx2XR5qzohs/LS4lDC0GCyLpCYFmsfTk28UCVDbOE9+KtoXY4FnwHYiF+ZYEU3hnJ1lQ==
 
 text-extensions@^1.0.0:
   version "1.9.0"
