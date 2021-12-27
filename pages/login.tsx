@@ -33,7 +33,6 @@ const Login = () => {
         throw new Error(await res.text())
       }
     } catch (error) {
-      console.log({ errorMessage: error.message })
       if (error.message.match(TWO_FACTOR_MISSING_RESPONSE)) {
         setErrorMsg("Please supply two-factor authentication code")
         setTwoFactorEnabled(true)
@@ -65,7 +64,7 @@ const Login = () => {
           >
             <label>
               Authentication code
-              <input type="text" name="otp" />
+              <input type="text" name="otp" disabled={!isTwoFactorEnabled} />
             </label>
           </div>
           <div>

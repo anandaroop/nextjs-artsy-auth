@@ -16,8 +16,10 @@ export default function Page() {
         artists {
           name
         }
-        artworksConnection(first: 10) {
-          totalCount
+        filterArtworksConnection(first: 100) {
+          counts {
+            total
+          }
           edges {
             node {
               internalID
@@ -56,24 +58,24 @@ export default function Page() {
       {isLoading ? (
         "Loading…"
       ) : (
-          <>
-            <h1>
-              {artistSeries.artists.map((a) => a.name).join(", ")}:{" "}
-              {artistSeries.title}
-            </h1>
+        <>
+          <h1>
+            {artistSeries.artists.map((a) => a.name).join(", ")}:{" "}
+            {artistSeries.title}
+          </h1>
 
-            <div style={{ marginBottom: "2em" }}>{artistSeries.description}</div>
+          <div style={{ marginBottom: "2em" }}>{artistSeries.description}</div>
 
-            {artistSeries.artworksConnection.edges.map(({ node }) => {
-              return (
-                <div key={node.internalID}>
-                  <h2>{node.title}</h2>
-                  <img src={node.imageUrl} alt={node.title} />
-                </div>
-              );
-            })}
-          </>
-        )}
+          {artistSeries.filterArtworksConnection.edges.map(({ node }) => {
+            return (
+              <div key={node.internalID}>
+                <h2>{node.title}</h2>
+                <img src={node.imageUrl} alt={node.title} />
+              </div>
+            );
+          })}
+        </>
+      )}
     </div>
   );
 }
