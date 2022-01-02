@@ -1,0 +1,7 @@
+{
+  "user": {
+    "email": "fake.admin@artsymail.com",
+    "roles": ["user", "team", "admin"],
+    "accessToken": "fake access token"
+  }
+}
