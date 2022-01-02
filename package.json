@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"{pages,components,lib}/**/*.ts{,x}\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cypress:open": "dotenv -f .env.local  yarn cypress open"
   },
   "dependencies": {
     "cookie": "^0.4.1",
