@@ -6,7 +6,7 @@ export default function Page() {
   const user = useUser({ redirectTo: "/login" })
 
   const query = `
-    query {
+    query ListArtistSeries {
       artistSeriesConnection {
         edges {
           node {
@@ -52,7 +52,7 @@ export default function Page() {
             <tbody>
               {artistSeriesList.map((series) => {
                 return (
-                  <tr>
+                  <tr key={series.slug}>
                     <td className="image">
                       <img src={series.image?.url} alt={series.title} />
                     </td>

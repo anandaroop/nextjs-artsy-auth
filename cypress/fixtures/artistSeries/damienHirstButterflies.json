@@ -1,0 +1,51 @@
+{
+  "data": {
+    "artistSeries": {
+      "internalID": "94fabebc-c6ea-4fad-83a0-a04fa101613d",
+      "slug": "damien-hirst-butterflies",
+      "title": "Butterflies",
+      "description": "For Damien Hirst, butterflies symbolize death and resurrection. The British artist debuted this motif when he was 26 years old, with his ambitious installation “In and Out of Love”(1991). To showcase the insects’ short lifespan, Hirst invited viewers to watch butterflies emerge from their cocoons, fly around the gallery space, and die before the show’s end. Decades after this career-defining exhibition, Hirst remains fascinated by butterflies. He’s arranged their wings into psychedelic patterns in his kaleidoscope paintings, turned them into stained glass windows in his cathedral prints, presented them neatly in rows for his entomology cabinets, and more. “You have to find universal triggers,” the artist [explains](http://www.damienhirst.com/texts1/series/butterfly-colour-paintings), “Everyone’s frightened of glass, everyone’s frightened of sharks, everyone loves butterflies.”",
+      "artists": [{ "name": "Damien Hirst" }],
+      "filterArtworksConnection": {
+        "counts": { "total": 414 },
+        "edges": [
+          {
+            "node": {
+              "internalID": "61bc913cebd38b000c2868a1",
+              "title": "Butterfly Drawing",
+              "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/-eJo9v2Br-Gr31aqNiYL9g/square.jpg"
+            }
+          },
+          {
+            "node": {
+              "internalID": "6128f5718c26db000d6c596a",
+              "title": "Red Butterfly Etching",
+              "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/b1I_MRWzeyuZ4h5qR1twBQ/square.jpg"
+            }
+          },
+          {
+            "node": {
+              "internalID": "5fbbdedc6710a0000ee03ce1",
+              "title": "Butterfly Rainbow (487/1497) ",
+              "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/ta297K31GEOOcPp1CFYEaA/square.jpg"
+            }
+          },
+          {
+            "node": {
+              "internalID": "59f0ad022a893a6d2616399c",
+              "title": "Six Butterflies III",
+              "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/aQ9ZAgrIjU2gvJkpw8x-3A/square.jpg"
+            }
+          },
+          {
+            "node": {
+              "internalID": "612e49798e8fb1000e2ae446",
+              "title": "'I Love You' 24K Gold Leaf Heart, Red Butterfly",
+              "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/KM78AX93amoAJWml8f16-A/square.jpg"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ export default function Page() {
   const user = useUser({ redirectTo: "/login" });
 
   const query = `
-    query($slug: ID!) {
+    query ShowArtistSeries($slug: ID!) {
       artistSeries(id: $slug) {
         internalID
         slug

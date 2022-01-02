@@ -1,0 +1,41 @@
+{
+  "data": {
+    "artistSeriesConnection": {
+      "edges": [
+        {
+          "node": {
+            "slug": "kaws-companions",
+            "title": "Companions",
+            "artists": [{ "slug": "kaws", "name": "KAWS" }],
+            "forSaleArtworksCount": 406,
+            "image": {
+              "url": "https://d32dm0rphc51dk.cloudfront.net/b1yhbf0IZyvlVyrdu-m1CA/small.jpg"
+            }
+          }
+        },
+        {
+          "node": {
+            "slug": "damien-hirst-butterflies",
+            "title": "Butterflies",
+            "artists": [{ "slug": "damien-hirst", "name": "Damien Hirst" }],
+            "forSaleArtworksCount": 137,
+            "image": {
+              "url": "https://d32dm0rphc51dk.cloudfront.net/-Izp6LZWpmJdwz4HJhd9MQ/small.jpg"
+            }
+          }
+        },
+        {
+          "node": {
+            "slug": "alex-katz-ada",
+            "title": "Ada",
+            "artists": [{ "slug": "alex-katz", "name": "Alex Katz" }],
+            "forSaleArtworksCount": 130,
+            "image": {
+              "url": "https://d32dm0rphc51dk.cloudfront.net/evfYFCmW3_Ufq-2upjAttA/small.jpg"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
