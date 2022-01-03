@@ -20,7 +20,7 @@ export const Header = () => {
   )
 }
 
-const Nav: React.FC<{ user: unknown }> = ({ user }) => {
+export const Nav: React.FC<{ user: unknown }> = ({ user }) => {
   return (
     <>
       <nav>
