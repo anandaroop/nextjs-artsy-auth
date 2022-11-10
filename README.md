@@ -1,3 +1,5 @@
+> **Note**
+> Archiving this app. Patterns have been superseded by artsy/forque
 
 # Next.js Artsy Auth
 
